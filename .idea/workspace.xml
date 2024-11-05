@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="9574bd0a-8b28-475c-8510-875753f25562" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/pythonProject_Booking.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/booking_app/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/booking_app/booking/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/booking_app/booking/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/booking_app/booking/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/booking_app/booking/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/booking_app/booking/models/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/booking_app/booking/models/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/booking_app/booking/serializers/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/booking_app/booking/serializers/booking_serializer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/booking_app/booking/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/booking_app/booking/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/booking_app/booking/utils/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/booking_app/booking/views/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/booking_app/booking/views/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/booking_app/history/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/booking_app/history/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/booking_app/history/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/booking_app/history/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/booking_app/history/models/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/booking_app/history/models/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/booking_app/history/serializers/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/booking_app/history/serializers/history_serlializer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/booking_app/history/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/booking_app/history/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/booking_app/history/utils/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/booking_app/history/views/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/booking_app/history/views/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/booking_app/listings/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/booking_app/listings/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/booking_app/listings/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/booking_app/listings/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/booking_app/listings/models/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/booking_app/listings/models/model.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/booking_app/listings/serializers/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/booking_app/listings/serializers/listings_serializer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/booking_app/listings/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/booking_app/listings/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/booking_app/listings/utils/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/booking_app/listings/views/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/booking_app/listings/views/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/booking_app/reviews/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/booking_app/reviews/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/booking_app/reviews/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/booking_app/reviews/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/booking_app/reviews/models/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/booking_app/reviews/models/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/booking_app/reviews/serializers/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/booking_app/reviews/serializers/review_serializer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/booking_app/reviews/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/booking_app/reviews/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/booking_app/reviews/utils/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/booking_app/reviews/views/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/booking_app/reviews/views/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/booking_app/routers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/booking_app/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/booking_app/user/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/booking_app/user/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/booking_app/user/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/booking_app/user/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/booking_app/user/models/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/booking_app/user/models/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/booking_app/user/serializers/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/booking_app/user/serializers/user_serializer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/booking_app/user/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/booking_app/user/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/booking_app/user/utils/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/booking_app/user/views/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/booking_app/user/views/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/booking_app/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/asgi.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/settings.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/wsgi.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2oG05q6eOX9lQd9bmLWXnndLaI6" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/dorve/PycharmProjects/pythonProject_Booking"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\dorve\PycharmProjects\pythonProject_Booking\booking_app" />
+      <recent name="C:\Users\dorve\PycharmProjects\pythonProject_Booking\booking_app\booking\views" />
+      <recent name="C:\Users\dorve\PycharmProjects\pythonProject_Booking\booking_app\history\views" />
+      <recent name="C:\Users\dorve\PycharmProjects\pythonProject_Booking\booking_app\reviews\views" />
+      <recent name="C:\Users\dorve\PycharmProjects\pythonProject_Booking\booking_app\user\views" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="pythonProject_Booking" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-48aec45f0201-746f403e7f0c-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-241.17011.127" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9574bd0a-8b28-475c-8510-875753f25562" name="Changes" comment="" />
+      <created>1730480424701</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1730480424701</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/main.py</url>
+          <line>8</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
