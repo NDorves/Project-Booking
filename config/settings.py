@@ -9,9 +9,14 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
-
+import pymysql
+pymysql.install_as_MySQLdb()
+# import os
+# from dotenv import load_dotenv
+# from pathlib import Path
+# import pymysql
+# load_dotenv()
 from pathlib import Path
-
 from environ import Env
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -44,6 +49,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # 3ed party
     'rest_framework',
+    'django_filters',
+ #   'Pillow',
+
     #local
     'booking_app.booking.apps.BookingConfig',
     'booking_app.history.apps.HistoryConfig',
@@ -96,7 +104,9 @@ if env.bool('MYSQL', default=False):
             'PASSWORD': env('DB_PASSWORD'),
             'HOST': env('DB_HOST'),
             'PORT': env('DB_PORT'),
-            'OPTIONS': {'ssl_mode': 'DISABLED'},
+            'OPTIONS': {
+                'ssl': {
+                    'check_hostname': False, }}
         },
     }
 else:
@@ -148,3 +158,7 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
+}

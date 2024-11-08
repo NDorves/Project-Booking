@@ -6,7 +6,6 @@ router = DefaultRouter()
 router.register(r'search-history', SearchHistoryViewSet)
 router.register(r'view-history', ViewHistoryViewSet)
 
-
 urlpatterns = [
     path('', include(router.urls)),
 ]

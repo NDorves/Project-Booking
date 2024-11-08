@@ -9,12 +9,12 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     username = models.CharField(_("username"), max_length=50, unique=True,
                                 error_messages={"unique": _("A user with that username already exists."), })
+    is_staff = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
     first_name = models.CharField(_("first name"), max_length=40, validators=[MinLengthValidator(2)],)
     last_name = models.CharField(_("last name"), max_length=40, validators=[MinLengthValidator(2)],)
     email = models.EmailField(_("email address"), max_length=150, unique=True)
     phone = models.CharField(max_length=75, null=True, blank=True)
-    is_staff = models.BooleanField(default=False)
-    is_active = models.BooleanField(default=True)
     date_joined = models.DateTimeField(name="registered", auto_now_add=True)
     last_login = models.DateTimeField(null=True, blank=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -24,7 +24,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     user_permissions = models.ManyToManyField(Permission, related_name='custom_user_permissions_set', blank=True)
 
     USERNAME_FIELD = "email"
-    REQUIRED_FIELDS = ["username", "first_name", "last_name", "position"]
+    REQUIRED_FIELDS = ["username", "first_name", "last_name"]
 
 #    objects = UserManager()
 

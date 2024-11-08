@@ -4,6 +4,7 @@ from booking_app.booking.views.views import BookingViewSet
 
 router = DefaultRouter()
 router.register(r'bookings', BookingViewSet)
+
 urlpatterns = [
     path('', include(router.urls)),
 ]

@@ -9,18 +9,16 @@ from booking_app.user.models.model import User
 
 class UserDetailSerializer(serializers.ModelSerializer):
     phone = serializers.CharField(source='profile.phone')
-    position = serializers.CharField(source='profile.position')
-    project = serializers.CharField(source='profile.project')
 
     class Meta:
         model = User
-        fields = ['username', 'first_name', 'last_name', 'email', 'phone', 'position', 'project']
+        fields = ['username', 'first_name', 'last_name', 'email', 'phone',]
 
 
 class UserListSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('first_name', 'last_name', 'position', 'email', 'phone', 'last_login',)
+        fields = ('first_name', 'last_name', 'email', 'phone', 'last_login',)
 
 
 class RegisterUserSerializer(serializers.ModelSerializer):
@@ -31,7 +29,7 @@ class RegisterUserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('username', 'first_name', 'last_name', 'email', 'position', 'password', 're_password',)
+        fields = ('username', 'first_name', 'last_name', 'email', 'password', 're_password',)
         extra_kwargs = {'password': {'write_only': True}}
 
     def validate(self, data):
