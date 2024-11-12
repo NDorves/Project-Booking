@@ -30,3 +30,12 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         return f"{self.last_name} {self.first_name}"
+
+
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE,
+                                related_name='profile')
+    description = models.TextField(blank=True, null=True)
+
+    def __str__(self):
+        return self.user.model.User.username

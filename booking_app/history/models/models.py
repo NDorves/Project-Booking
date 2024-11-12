@@ -1,5 +1,6 @@
+from django import forms
 from django.db import models
-from booking_app.listings.models.model import Listings
+from booking_app.listings.models.model import Listings, PROPERTY_CHOICES
 from booking_app.user.models.model import User
 SEARCH_CHOICES = [
         ('Room', 'Room'),
@@ -9,26 +10,37 @@ SEARCH_CHOICES = [
         ('Hostel', 'Hostel'),
         ('House', 'House'),
         ('Villa', 'Villa'),
-
-
     ]
 
 
 class SearchHistory(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    keyword = models.CharField(max_length=50, choices=SEARCH_CHOICES)
-    created_at = models.DateTimeField(auto_now_add=True)
-    listing = models.ForeignKey(Listings, on_delete=models.CASCADE, null=True, related_name='search_listings')
-#    location = models.ForeignKey(Listings, on_delete=models.CASCADE, null=True, related_query_name='listings.location')
+    user = models.ForeignKey(User,
+                             on_delete=models.CASCADE,
+                             related_name='search_history')
+    term = models.CharField(max_length=255)
+    searched_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'{self.user.username} - {self.term}'
+
+    class Meta:
+        ordering = ['-searched_at']
 
 
 class ViewHistory(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
-    listing = models.ForeignKey(Listings, on_delete=models.CASCADE, null=True, related_name='listings_view')
-    created_at = models.DateTimeField(auto_now_add=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE,
+                             null=True, related_name='view_history')
+    listing = models.ForeignKey(Listings, on_delete=models.CASCADE,
+                                null=True, related_name='view_history')
+    viewed_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return f'{self.user.username} - {self.listing.title}'
+        return f'{self.user.username} viewed {self.listing.title}'
+
+    class Meta:
+        ordering = ['-viewed_at']
+
+
 
 
 

@@ -28,7 +28,7 @@ class ListingViewSet(viewsets.ModelViewSet):
         view_counts = Listings.objects.annotate(view_count=Count('view'))
         data = [
             {
-                "id": ViewHistory.listings_id,
+                "id": ViewHistory.listing,
                 "view_count": ViewHistory.view_count
             }
             for view in view_counts
@@ -36,6 +36,4 @@ class ListingViewSet(viewsets.ModelViewSet):
         return Response(data)
 
 
-class LocationViewSet(viewsets.ModelViewSet):
-    queryset = Location.objects.all()
-    serializer_class = LocationSerializer
+
