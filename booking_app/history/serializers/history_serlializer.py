@@ -1,5 +1,4 @@
 from typing import Any
-
 from django.urls import reverse
 from rest_framework import serializers
 from booking_app.history.models.models import *

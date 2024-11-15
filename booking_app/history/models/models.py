@@ -1,16 +1,7 @@
 from django import forms
 from django.db import models
-from booking_app.listings.models.model import Listings, PROPERTY_CHOICES
+from booking_app.listings.models.model import Listings
 from booking_app.user.models.model import User
-SEARCH_CHOICES = [
-        ('Room', 'Room'),
-        ('Suite', 'Suite'),
-        ('Studio', 'Studio'),
-        ('Apartment', 'Apartment'),
-        ('Hostel', 'Hostel'),
-        ('House', 'House'),
-        ('Villa', 'Villa'),
-    ]
 
 
 class SearchHistory(models.Model):
