@@ -1,5 +1,7 @@
+from django.db.models import Count
 from django.shortcuts import render
 from rest_framework import viewsets
+from rest_framework.response import Response
 from booking_app.history.serializers.history_serlializer import *
 
 
@@ -7,49 +9,32 @@ class SearchHistoryViewSet(viewsets.ModelViewSet):
     queryset = SearchHistory.objects.all()
     serializer_class = SearchHistorySerializer
     # permission_classes = [IsAuthenticated]
+    # @extend_schema(summary="Получить историю поисковых запросов аутентифицированного пользователя")
+    # @action(
+    #     methods=['get'],
+    #     detail=False,
+    #     url_path='my-search-history',
+    #     permission_classes=[permissions.IsAuthenticated]
+    # )
 
-    def search_view(request):
-        form = SearchForm()
-        results = []
-        if request.method == 'GET':
-            form = SearchForm(request.GET)
-            if form.is_valid():
-                keywords = form.cleaned_data.get('keywords')
-                min_price = form.cleaned_data.get('min_price')
-                max_price = form.cleaned_data.get('max_price')
-                location = form.cleaned_data.get('location')
-                min_rooms = form.cleaned_data.get('min_rooms')
-                max_rooms = form.cleaned_data.get('max_rooms')
-                property_type = form.cleaned_data.get('property_type')
-                sort_by = form.cleaned_data.get('sort_by')
-                order = form.cleaned_data.get('order')
-                query = Listings.objects.all()
-                if keywords:
-                    keyword_list = [kw.strip() for kw in keywords.split(',')]
-                    for keyword in keyword_list:
-                        query = query.filter(models.Q(title__icontains=keyword) | models.Q(description__icontains=keyword))
-                if min_price is not None:
-                    query = query.filter(price__gte=min_price)
-                if max_price is not None:
-                    query = query.filter(price__lte=max_price)
-                if location:
-                    query = query.filter(location__icontains=location)
-                if min_rooms is not None:
-                    query = query.filter(rooms__gte=min_rooms)
-                if max_rooms is not None:
-                    query = query.filter(rooms__lte=max_rooms)
-                if property_type:
-                    query = query.filter(property_type=property_type)
-                if sort_by:
-                    if order == 'desc':
-                        sort_by = f'-{sort_by}'
-                    query = query.order_by(sort_by)
-                    results = query
-                    # Save search history
-                if request.user.is_authenticated:
-                    for keyword in keyword_list:
-                        SearchHistory.objects.create(user=request.user, keyword=keyword, listing=None)
-        return render(request, 'search.html', {'form': form, 'results': results})
+    def my_search_history(self, request):
+        search_history = SearchHistory.objects.filter(
+            user=request.user
+        ).order_by('-searched_at')
+        search_history = [search for search in search_history]
+        serializer = SearchHistorySerializer(search_history, many=True)
+        return Response(serializer.data)
+
+    def search_stats(self, request):
+        search_stats = (
+            SearchHistory.objects
+            .values('term')
+            .annotate(total_searches=Count('term'))
+            .order_by('-total_searches')
+        )
+        search_stats = [search for search in search_stats]
+        serializer = SearchStatsSerializer(search_stats, many=True)
+        return Response(serializer.data)
 
 
 class ViewHistoryViewSet(viewsets.ModelViewSet):
@@ -57,5 +42,13 @@ class ViewHistoryViewSet(viewsets.ModelViewSet):
     serializer_class = ViewHistorySerializer
     # permission_classes = [IsAuthenticated]
 
-
+    def my_view_history(self, request):
+        view_history = ViewHistory.objects.filter(
+            user=request.user
+        ).order_by('-viewed_at')
+        view_history = [view for view in view_history]
+        serializer = ViewHistorySerializer(
+            view_history, many=True, context={'request': request}
+        )
+        return Response(serializer.data)
 

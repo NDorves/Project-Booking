@@ -14,9 +14,7 @@ SEARCH_CHOICES = [
 
 
 class SearchHistory(models.Model):
-    user = models.ForeignKey(User,
-                             on_delete=models.CASCADE,
-                             related_name='search_history')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='search_history')
     term = models.CharField(max_length=255)
     searched_at = models.DateTimeField(auto_now_add=True)
 
@@ -28,10 +26,8 @@ class SearchHistory(models.Model):
 
 
 class ViewHistory(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE,
-                             null=True, related_name='view_history')
-    listing = models.ForeignKey(Listings, on_delete=models.CASCADE,
-                                null=True, related_name='view_history')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, related_name='view_history')
+    listing = models.ForeignKey(Listings, on_delete=models.CASCADE, null=True, related_name='view_history')
     viewed_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):

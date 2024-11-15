@@ -1,75 +1,119 @@
-import re
-
-from django.contrib.auth.password_validation import validate_password
 from rest_framework import serializers
-from rest_framework.exceptions import ValidationError
+from rest_framework.validators import UniqueValidator
+from django.urls import reverse
+from django.contrib.auth import authenticate
+from django.contrib.auth.models import User
+from booking_app.user.models.model import Profile
 
-from booking_app.user.models.model import User
+
+class ProfileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Profile
+        exclude = ['id', 'user']
 
 
-class UserDetailSerializer(serializers.ModelSerializer):
-    phone = serializers.CharField(source='profile.phone')
+class UserSerializer(serializers.ModelSerializer):
+    profile = ProfileSerializer()
+    profile_url = serializers.SerializerMethodField()
 
     class Meta:
         model = User
-        fields = ['username', 'first_name', 'last_name', 'email', 'phone',]
-
-
-class UserListSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = User
-        fields = ('first_name', 'last_name', 'email', 'phone', 'last_login',)
+        fields = ['id', 'username', 'email', 'profile', 'profile_url']
         read_only_fields = ['username', 'email']
 
+    def create(self, validated_data):  #Переопределение метода create
+        profile_data = validated_data.pop('profile', {})
+        user = User.objects.create(**validated_data)
+        Profile.objects.create(user=user, **profile_data)
+        return user
 
-class RegisterUserSerializer(serializers.ModelSerializer):
-    re_password = serializers.CharField(
-        max_length=128,
-        write_only=True,
-    )
+    def update(self, instance, validated_data):
+        profile_data = validated_data.get('profile', {})
+        profile_serializer = ProfileSerializer(
+            instance.profile,
+            data=profile_data,
+            partial=True
+        )
+        if profile_serializer.is_valid():
+            profile_serializer.save()
+        return instance
 
+    def get_profile_url(self, obj) -> str:
+        request = self.context.get('request')
+        if request:
+            return request.build_absolute_uri(
+                reverse('user-detail', kwargs={'pk': obj.pk})
+            )
+        return None
+
+
+class RegisterSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('username', 'first_name', 'last_name', 'email', 'password', 're_password',)
-        extra_kwargs = {'password': {'write_only': True}}
-
-    def validate(self, data):
-        username = data.get('username')
-        first_name = data.get('first_name')
-        last_name = data.get('last_name')
-
-        if not re.match('^[a-zA-Z0-9_]*$', username):
-            raise serializers.ValidationError(
-                "The username must be alphanumeric characters or have only _ symbol"
-            )
-
-        if not re.match('^[a-zA-Z]*$', first_name):
-            raise serializers.ValidationError(
-                "The first name must contain only alphabet symbols"
-            )
-
-        if not re.match('^[a-zA-Z]*$', last_name):
-            raise serializers.ValidationError(
-                "The last name must contain only alphabet symbols"
-            )
-
-        password = data.get("password")
-        re_password = data.get("re_password")
-
-        if password != re_password:
-            raise serializers.ValidationError({"password": "Passwords don't match"})
-
-        try:
-            validate_password(password)
-        except ValidationError as err:
-            raise serializers.ValidationError({"password": err.messages})
-
-        return data
+        fields = ['username', 'email', 'password']
+        extra_kwargs = {
+            'email': {
+                'required': True,
+                'allow_blank': False,
+                'validators': [UniqueValidator(queryset=User.objects.all())]
+            },
+            'password': {
+                'write_only': True,
+                'style': {'input_type': 'password'}
+            }
+        }
 
     def create(self, validated_data):
-        password = validated_data.pop('password')
-        validated_data.pop('re_password')
-        user = User(**validated_data)
-        user.set_password(password)
-        user.save()
+        user = User.objects.create_user(
+            username=validated_data['username'],
+            password=validated_data['password'],
+            email=validated_data['email']
+        )
         return user
+
+
+class LoginSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['email', 'password']
+        extra_kwargs = {
+            'email': {
+                'required': True,
+                'allow_blank': False
+            },
+            'password': {
+                'write_only': True,
+                'style': {'input_type': 'password'}
+            }
+        }
+
+
+class EmailTokenObtainPairSerializer(serializers.Serializer):
+    email = serializers.EmailField(
+        required=True,
+        allow_blank=False
+    )
+    password = serializers.CharField(
+        write_only=True,
+        style={'input_type': 'password'}
+    )
+
+    @classmethod
+    def get_token(cls, user):
+        from rest_framework_simplejwt.tokens import RefreshToken
+        return RefreshToken.for_user(user)
+
+    def validate(self, attrs):
+        email = attrs.get('email')
+        password = attrs.get('password')
+        try:
+            user = User.objects.get(email=email)
+        except User.DoesNotExist:
+            raise serializers.ValidationError('Invalid email or password.')
+        user = authenticate(username=user.username, password=password)
+        refresh = self.get_token(user)
+        data = {
+            'refresh': str(refresh),
+            'access': str(refresh.access_token),
+        }
+        return data

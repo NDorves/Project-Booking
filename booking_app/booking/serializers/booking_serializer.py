@@ -4,11 +4,19 @@ from django.db.models import Q
 from rest_framework import serializers
 
 from booking_app.booking.models.model import Booking, BookingStatus
-from booking_app.user.serializers.user_serializer import UserListSerializer
+from booking_app.user.serializers.user_serializer import UserSerializer
+
+
+class ChoicesSerializer(serializers.Serializer):
+    value = serializers.CharField()
+    display_name = serializers.CharField()
+
+    def to_representation(self, instance):
+        return {'value': instance[0], 'display_name': instance[1]}
 
 
 class BookingSerializer(serializers.ModelSerializer):
-    user = UserListSerializer(read_only=True)
+    user = UserSerializer(read_only=True)
     status_display = serializers.SerializerMethodField()
     booking_url = serializers.SerializerMethodField()
     listing_url = serializers.SerializerMethodField()
@@ -35,9 +43,9 @@ class BookingSerializer(serializers.ModelSerializer):
     def get_listing_url(self, obj) -> str:
         request = self.context.get('request')
         if request:
-            return request.build_absolute_uri(
-                reverse('listing-detail', kwargs={'pk': obj.listing.pk})
-            )
+            return request.build_absolute_uri({'pk': obj.listing.pk})
+            #     reverse('listing-detail', kwargs=
+            # )
         return None
 
     def validate(self, data):

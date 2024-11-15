@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from booking_app.user.models.model import User
+from booking_app.user.models.model import Profile
 
 # Register your models here.
-admin.site.register(User)
+admin.site.register(Profile)

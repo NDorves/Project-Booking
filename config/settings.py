@@ -9,6 +9,9 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
+import os
+from datetime import timedelta
+
 import pymysql
 pymysql.install_as_MySQLdb()
 # import os
@@ -36,8 +39,6 @@ DEBUG = env.bool('DEBUG', default=False)
 
 ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=[])
 
-
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -50,6 +51,8 @@ INSTALLED_APPS = [
     # 3ed party
     'rest_framework',
     'django_filters',
+    'rest_framework_simplejwt',
+ #   'drf_spectacular',
  #   'Pillow',
 
     #local
@@ -69,6 +72,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'booking_app.user.middlewares.JWTAuthMiddleware',
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -153,12 +157,79 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
+#
+# DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+# AUTH_USER_MODEL = 'user.User'
+# REST_FRAMEWORK = {
+#     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
+#     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+#     'PAGE_SIZE': 10,
+#     'DEFAULT_AUTHENTICATION_CLASSES': ('rest_framework_simplejwt.authentication.JWTAuthentication',),
+#     'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAuthenticated',),
+#     # 'DEFAULT_AUTHENTICATION_CLASSES': [
+#     #     'rest_framework_simplejwt.authentication.JWTAuthentication',
+#     # ],
+#     # 'DEFAULT_PERMISSION_CLASSES': [
+#     #     'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+#     # ],
+#     # 'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+# }
+#
+# SIMPLE_JWT = {
+#     'ACCESS_TOKEN_LIFETIME': timedelta(days=7),
+#     'REFRESH_TOKEN_LIFETIME': timedelta(days=15),
+#     'ROTATE_REFRESH_TOKENS': True,
+#     'BLACKLIST_AFTER_ROTATION': True,
+#     'AUTH_HEADER_TYPES': ('Bearer',),
+#     'USER_TO_CLAIM': 'user_id',
+#     'AUTH_TOKEN_CLASSES': ('rest_framework_simplejwt.tokens.AccessToken',),
+#     'ALGORITHM': 'HS256',
+# }
+#
+#
+# # SIMPLE_JWT = {
+# #     'ACCESS_TOKEN_LIFETIME': timedelta(days=10),
+# #     'REFRESH_TOKEN_LIFETIME': timedelta(days=30),
+# # }
+#
+#============================================================================
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK = {
-    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10,
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+    ],
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(days=10),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=30),
+}
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'renthub API',
+    'DESCRIPTION': '''
+    Полнофункциональное back-end-приложение для системы аренды жилья, включающее управление объявлениями, функциональность поиска и фильтрации по различным параметрам.
+    ''',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+    'SWAGGER_UI_SETTINGS': {
+        'deepLinking': True,
+        'persistAuthorization': True,
+        # "displayOperationId": True,
+        'filter': True,
+    },
+    'COMPONENT_SPLIT_REQUEST': True,
 }
