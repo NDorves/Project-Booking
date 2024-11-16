@@ -1,8 +1,7 @@
 from django.db import models
 from django.utils import timezone
-
-from booking_app.listings.models.model import Listings
-from booking_app.user.models.model import User
+from booking_app.listings.model import Listings
+from booking_app.user.model import User
 from django.utils.translation import gettext_lazy as _
 
 

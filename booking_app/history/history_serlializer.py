@@ -1,7 +1,7 @@
 from typing import Any
 from django.urls import reverse
 from rest_framework import serializers
-from booking_app.history.models.models import *
+from booking_app.history.models import *
 
 
 class ViewHistorySerializer(serializers.ModelSerializer):
@@ -18,10 +18,10 @@ class ViewHistorySerializer(serializers.ModelSerializer):
     def get_listing_url(self, obj) -> Any | None:
         request = self.context.get('request')
         if request:
-            return request.build_absolute_uri({'pk': obj.listing.pk})
-        #         reverse('listing-detail', kwargs=
-        #     )
-        # return None
+            return request.build_absolute_uri(
+                reverse('listings-detail', kwargs={'pk': obj.listing.pk})
+            )
+        return None
 
 
 class SearchHistorySerializer(serializers.ModelSerializer):

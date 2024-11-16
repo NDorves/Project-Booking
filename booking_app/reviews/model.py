@@ -1,7 +1,7 @@
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
-from booking_app.listings.models.model import Listings
-from booking_app.user.models.model import User
+from booking_app.listings.model import Listings
+from booking_app.user.model import User
 
 
 class Review(models.Model):

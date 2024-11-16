@@ -1,10 +1,9 @@
 from django.db.models import Count
-from django.shortcuts import render
 from rest_framework import viewsets, permissions
 from rest_framework.decorators import action
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
-from booking_app.history.serializers.history_serlializer import *
+from booking_app.history.history_serlializer import *
 
 
 class SearchHistoryViewSet(viewsets.ModelViewSet):

@@ -1,18 +1,16 @@
 from datetime import timedelta
-from django.db.models import Count, Q
+from django.db.models import Count
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import viewsets, filters, permissions
-from rest_framework.decorators import action
 from rest_framework.exceptions import PermissionDenied
 from rest_framework.response import Response
-from booking_app.booking.models.model import Booking, BookingStatus
-from booking_app.history.models.models import ViewHistory, SearchHistory
-from booking_app.history.serializers.history_serlializer import ViewHistorySerializer, SearchHistorySerializer, \
-    SearchStatsSerializer
-from booking_app.listings.filters.filters import CustomSearchFilter
-from booking_app.listings.permissions.permissions import IsOwnerOrReadOnly
-from booking_app.listings.serializers.listings_serializer import *
-from booking_app.reviews.serializers.review_serializer import ReviewSerializer
+from booking_app.booking.model import Booking, BookingStatus
+from booking_app.history.models import ViewHistory, SearchHistory
+from booking_app.history.history_serlializer import SearchStatsSerializer
+from booking_app.listings.filters import CustomSearchFilter
+from booking_app.listings.permissions import IsOwnerOrReadOnly
+from booking_app.listings.listings_serializer import *
+from booking_app.reviews.review_serializer import ReviewSerializer
 
 
 # class ListingViewSet(viewsets.ModelViewSet):

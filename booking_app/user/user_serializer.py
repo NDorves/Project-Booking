@@ -3,7 +3,7 @@ from rest_framework.validators import UniqueValidator
 from django.urls import reverse
 from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
-from booking_app.user.models.model import Profile
+from booking_app.user.model import Profile
 
 
 class ProfileSerializer(serializers.ModelSerializer):

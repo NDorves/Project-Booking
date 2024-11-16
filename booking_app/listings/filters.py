@@ -1,6 +1,6 @@
 from rest_framework import filters
 from django.db.models import Q
-from booking_app.history.models.models import SearchHistory
+from booking_app.history.models import SearchHistory
 
 
 class CustomSearchFilter(filters.SearchFilter):

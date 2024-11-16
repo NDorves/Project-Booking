@@ -2,9 +2,8 @@ from django.urls import reverse
 from django.utils import timezone
 from django.db.models import Q
 from rest_framework import serializers
-
-from booking_app.booking.models.model import Booking, BookingStatus
-from booking_app.user.serializers.user_serializer import UserSerializer
+from booking_app.booking.model import Booking, BookingStatus
+from booking_app.user.user_serializer import UserSerializer
 
 
 class ChoicesSerializer(serializers.Serializer):
@@ -44,25 +43,25 @@ class BookingSerializer(serializers.ModelSerializer):
         request = self.context.get('request')
         if request:
             return request.build_absolute_uri({'pk': obj.listing.pk})
-            #     reverse('listing-detail', kwargs=
-            # )
-        return None
+        #         reverse('listing-detail', kwargs=
+        #     )
+        # return None
 
     def validate(self, data):
         listing = data.get('listing')
         if not listing.is_active:
             raise serializers.ValidationError(
-                'It is not possible to book an inactive listing.'
+                'It is not possible to book an inactive listing.'  #Невозможно забронировать неактивное объявление.
             )
         start_date = data.get('start_date')
         end_date = data.get('end_date')
         if start_date < timezone.now().date():
             raise serializers.ValidationError(
-                'The booking start date cannot be in the past.'
+                'The booking start date cannot be in the past.'  #Дата начала бронирования не может быть в прошлом.
             )
         if start_date >= end_date:
             raise serializers.ValidationError(
-                'The start date of the booking must be before the end date.'
+                'The start date of the booking must be before the end date.'  #Дата нач.брон-я должна быть<даты оконч.
             )
         overlapping_bookings = Booking.objects.filter(
             listing=listing,
@@ -73,6 +72,6 @@ class BookingSerializer(serializers.ModelSerializer):
         )
         if overlapping_bookings.exists():
             raise serializers.ValidationError(
-                'The selected dates overlap with existing bookings.'
+                'The selected dates overlap with existing bookings.'  #Выбранные даты совпадают с существ. бронир-ми.
             )
         return data

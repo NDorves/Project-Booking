@@ -1,7 +1,6 @@
-from django import forms
 from django.db import models
-from booking_app.listings.models.model import Listings
-from booking_app.user.models.model import User
+from booking_app.listings.model import Listings
+from booking_app.user.model import User
 
 
 class SearchHistory(models.Model):

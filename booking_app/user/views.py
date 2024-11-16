@@ -8,8 +8,8 @@ from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework_simplejwt.views import TokenObtainPairView
 from django.contrib.auth.models import User
-from booking_app.listings.permissions.permissions import IsOwnerOrReadOnly
-from booking_app.user.serializers.user_serializer import RegisterSerializer, LoginSerializer, \
+from booking_app.listings.permissions import IsOwnerOrReadOnly
+from booking_app.user.user_serializer import RegisterSerializer, LoginSerializer, \
     EmailTokenObtainPairSerializer, UserSerializer
 
 
@@ -108,7 +108,7 @@ class LogoutView(views.APIView):    #Выйти из системы"
     permission_classes = [IsAuthenticated]
 
     def post(self, request, *args, **kwargs):
-        response = Response({'msg': 'Bye!'}, status=status.HTTP_200_OK)
+        response = Response({'msg': 'Good Bye!'}, status=status.HTTP_200_OK)
         response.delete_cookie('access_token')
         response.delete_cookie('refresh_token')
         return response

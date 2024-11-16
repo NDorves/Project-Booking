@@ -1,9 +1,8 @@
 from rest_framework import viewsets, permissions
-from drf_spectacular.utils import extend_schema_view, extend_schema
 
-from booking_app.reviews.models.model import Review
+from booking_app.reviews.model import Review
 from booking_app.reviews.permissions import IsOwnerOrReadOnly
-from booking_app.reviews.serializers.review_serializer import ReviewSerializer
+from booking_app.reviews.review_serializer import ReviewSerializer
 
 
 # @extend_schema_view(

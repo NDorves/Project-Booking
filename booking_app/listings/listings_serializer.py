@@ -1,8 +1,7 @@
 from django.urls import reverse
 from rest_framework import serializers
-# from booking_app.history.models.models import ViewHistory, SearchHistory
-from booking_app.listings.models.model import Listings
-from booking_app.user.serializers.user_serializer import UserSerializer
+from booking_app.listings.model import Listings
+from booking_app.user.user_serializer import UserSerializer
 
 
 class ChoicesSerializer(serializers.Serializer):
@@ -47,38 +46,9 @@ class ListingSerializer(serializers.ModelSerializer):
     def get_listing_url(self, obj) -> str:
         request = self.context.get('request')
         if request:
-            return request.build_absolute_uri({'pk': obj.pk})
-        #         reverse('listing-detail', kwargs=
-        #     )
-        # return None
+            return request.build_absolute_uri(
+                reverse('listings-detail', kwargs={'pk': obj.pk})
+            )
+        return None
 
 
-# class ViewHistorySerializer(serializers.ModelSerializer):
-#     listing_str = serializers.SerializerMethodField()
-#     listing_url = serializers.SerializerMethodField()
-#
-#     class Meta:
-#         model = ViewHistory
-#         exclude = ['id', 'user']
-#
-#     def get_listing_str(self, obj) -> str:
-#         return f'{obj.listing.title} - {obj.listing.address}'
-#
-#     def get_listing_url(self, obj) -> str:
-#         request = self.context.get('request')
-#         if request:
-#             return request.build_absolute_uri(
-#                 reverse('listing-detail', kwargs={'pk': obj.listing.pk})
-#             )
-#         return None
-#
-#
-# class SearchHistorySerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = SearchHistory
-#         exclude = ['id', 'user']
-#
-#
-# class SearchStatsSerializer(serializers.Serializer):
-#     term = serializers.CharField(max_length=255)
-#     total_searches = serializers.IntegerField()

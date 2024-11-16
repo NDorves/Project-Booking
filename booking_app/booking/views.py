@@ -1,13 +1,12 @@
-#from django.db.migrations.serializer import ChoicesSerializer
 from rest_framework import viewsets, generics, permissions
 from rest_framework.decorators import action
 from rest_framework.exceptions import PermissionDenied, ValidationError
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
-from booking_app.booking.models.model import Booking, BookingStatus
-from booking_app.booking.permissions.permissions import AllowListingOwnerOrBookingUser, ReadOnly
-from booking_app.booking.serializers.booking_serializer import BookingSerializer, ChoicesSerializer
+from booking_app.booking.model import Booking, BookingStatus
+from booking_app.booking.permissions import AllowListingOwnerOrBookingUser, ReadOnly
+from booking_app.booking.booking_serializer import BookingSerializer, ChoicesSerializer
 
 
 class PropertyTypeListView(generics.ListAPIView):
@@ -36,7 +35,7 @@ class BookingViewSet(viewsets.ModelViewSet):
     def get_queryset(self):     #Получить список всех бронирований аутентифицированного пользователя
         if self.action == 'list':
             return Booking.objects.all()
-        return Booking.objects.filter(user=self.request.user)   #Получить детальную информацию о бронировании
+        return Booking.objects.filter(user=self.request.user)       #Получить детальную информацию о бронировании
 
     def get_permissions(self):      #Создать новое бронирование
         if self.action in ['create', 'my_hosted']:
@@ -51,6 +50,7 @@ class BookingViewSet(viewsets.ModelViewSet):
         current_price = listing.price
         serializer.save(user=self.request.user, price=current_price)
 
+    @action(methods=['get'], detail=False, url_path='my-hosted')
     def my_hosted(self, request):
         queryset = Booking.objects.filter(listing__owner=request.user)
         serializer = self.get_serializer(queryset, many=True)

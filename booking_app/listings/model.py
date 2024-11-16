@@ -1,6 +1,6 @@
 from django.db import models
 
-from booking_app.user.models.model import User
+from booking_app.user.model import User
 
 PROPERTY_CHOICES = [
         ('Room', 'Room'),

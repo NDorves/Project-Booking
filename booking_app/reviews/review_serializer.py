@@ -1,8 +1,8 @@
 from django.urls import reverse
 from rest_framework import serializers
-from booking_app.booking.models.model import Booking, BookingStatus
-from booking_app.reviews.models.model import Review
-from booking_app.user.serializers.user_serializer import UserSerializer
+from booking_app.booking.model import Booking, BookingStatus
+from booking_app.reviews.model import Review
+from booking_app.user.user_serializer import UserSerializer
 
 
 class ReviewSerializer(serializers.ModelSerializer):
