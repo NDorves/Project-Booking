@@ -4,92 +4,34 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9574bd0a-8b28-475c-8510-875753f25562" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/pythonProject_Booking.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/booking_app/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/booking_app/booking/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/booking_app/booking/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/booking_app/booking/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/booking_app/booking/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/booking_app/booking/models/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/booking_app/booking/models/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/booking_app/booking/serializers/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/booking_app/booking/serializers/booking_serializer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/booking_app/booking/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/booking_app/booking/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/booking_app/booking/utils/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/booking_app/booking/views/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/booking_app/booking/views/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/booking_app/history/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/booking_app/history/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/booking_app/history/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/booking_app/history/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/booking_app/history/models/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/booking_app/history/models/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/booking_app/history/serializers/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/booking_app/history/serializers/history_serlializer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/booking_app/history/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/booking_app/history/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/booking_app/history/utils/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/booking_app/history/views/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/booking_app/history/views/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/booking_app/listings/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/booking_app/listings/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/booking_app/listings/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/booking_app/listings/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/booking_app/listings/models/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/booking_app/listings/models/model.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/booking_app/listings/serializers/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/booking_app/listings/serializers/listings_serializer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/booking_app/listings/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/booking_app/listings/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/booking_app/listings/utils/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/booking_app/listings/views/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/booking_app/listings/views/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/booking_app/reviews/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/booking_app/reviews/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/booking_app/reviews/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/booking_app/reviews/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/booking_app/reviews/models/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/booking_app/reviews/models/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/booking_app/reviews/serializers/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/booking_app/reviews/serializers/review_serializer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/booking_app/reviews/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/booking_app/reviews/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/booking_app/reviews/utils/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/booking_app/reviews/views/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/booking_app/reviews/views/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/booking_app/routers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/booking_app/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/booking_app/user/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/booking_app/user/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/booking_app/user/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/booking_app/user/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/booking_app/user/models/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/booking_app/user/models/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/booking_app/user/serializers/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/booking_app/user/serializers/user_serializer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/booking_app/user/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/booking_app/user/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/booking_app/user/utils/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/booking_app/user/views/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/booking_app/user/views/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/booking_app/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/asgi.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/settings.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/wsgi.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
+    <list default="true" id="9574bd0a-8b28-475c-8510-875753f25562" name="Changes" comment="1.restructured booking_ap&#10;2.added decorators in bookings, history views">
+      <change afterPath="$PROJECT_DIR$/media/poster_images/ScrHamb_2024-11-18_151420.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/booking_app/booking/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/booking_app/booking/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/booking_app/booking/booking_serializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/booking_app/booking/booking_serializer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/booking_app/booking/model.py" beforeDir="false" afterPath="$PROJECT_DIR$/booking_app/booking/model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/booking_app/booking/permissions.py" beforeDir="false" afterPath="$PROJECT_DIR$/booking_app/booking/permissions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/booking_app/booking/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/booking_app/booking/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/booking_app/history/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/booking_app/history/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/booking_app/listings/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/booking_app/listings/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/booking_app/listings/model.py" beforeDir="false" afterPath="$PROJECT_DIR$/booking_app/listings/model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/booking_app/listings/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/booking_app/listings/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/booking_app/reviews/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/booking_app/reviews/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/booking_app/reviews/model.py" beforeDir="false" afterPath="$PROJECT_DIR$/booking_app/reviews/model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/booking_app/reviews/review_serializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/booking_app/reviews/review_serializer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/booking_app/reviews/signals.py" beforeDir="false" afterPath="$PROJECT_DIR$/booking_app/reviews/signals.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/booking_app/reviews/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/booking_app/reviews/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/booking_app/reviews/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/booking_app/reviews/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/booking_app/user/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/booking_app/user/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/booking_app/user/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/booking_app/user/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/booking_app/user/middlewares.py" beforeDir="false" afterPath="$PROJECT_DIR$/booking_app/user/middlewares.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/booking_app/user/model.py" beforeDir="false" afterPath="$PROJECT_DIR$/booking_app/user/model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/booking_app/user/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/booking_app/user/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/booking_app/user/user_serializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/booking_app/user/user_serializer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/booking_app/user/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/booking_app/user/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/booking_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/booking_app/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,6 +46,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectColorInfo">{
@@ -115,20 +62,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/dorve/PycharmProjects/pythonProject_Booking"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;test&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/dorve/PycharmProjects/pythonProject_Booking&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.project&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\dorve\PycharmProjects\pythonProject_Booking\booking_app" />
-      <recent name="C:\Users\dorve\PycharmProjects\pythonProject_Booking\booking_app\booking\views" />
-      <recent name="C:\Users\dorve\PycharmProjects\pythonProject_Booking\booking_app\history\views" />
-      <recent name="C:\Users\dorve\PycharmProjects\pythonProject_Booking\booking_app\reviews\views" />
-      <recent name="C:\Users\dorve\PycharmProjects\pythonProject_Booking\booking_app\user\views" />
+      <recent name="C:\Users\dorve\PycharmProjects\pythonProject_Booking\booking_app\user" />
+      <recent name="C:\Users\dorve\PycharmProjects\pythonProject_Booking\booking_app\reviews" />
+      <recent name="C:\Users\dorve\PycharmProjects\pythonProject_Booking\booking_app\listings" />
+      <recent name="C:\Users\dorve\PycharmProjects\pythonProject_Booking\booking_app\history" />
+      <recent name="C:\Users\dorve\PycharmProjects\pythonProject_Booking\booking_app\booking" />
     </key>
   </component>
   <component name="RunManager">
@@ -171,7 +120,76 @@
       <option name="presentableId" value="Default" />
       <updated>1730480424701</updated>
     </task>
+    <task id="LOCAL-00001" summary="add project_Boking booking.models;history.models; listings.models; reviews.models; user.models&#10;add all serializers;&#10;add views;">
+      <option name="closed" value="true" />
+      <created>1730823009475</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1730823009475</updated>
+    </task>
+    <task id="LOCAL-00002" summary="add new Data Base;&#10;add new column booking in model booking;&#10;Change IntegerFields to PositiveIntegerFields;&#10;add exceptions in IntegerFields;&#10;add Model Location;&#10;model Listings, bookings, reviews, user, history changed;&#10;add locationserializer;&#10;changed listings.urls;&#10;admin models registered;&#10;views history, listings changed;&#10;add neu migrations;">
+      <option name="closed" value="true" />
+      <created>1731106892235</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1731106892235</updated>
+    </task>
+    <task id="LOCAL-00003" summary="+ Add field created_at to booking&#10;    + Add field price to booking&#10;    + Add field status to booking&#10;    + Add field updated_at to booking&#10;    + Add field number_of_views to listings&#10;    + Add field owner to listings&#10;    + Add field rating to listings&#10;    add RATING_CHOICES in RATING;&#10;    Applying history remove searchhistory location&#10;  Applying listings remove listings locations alter_listings_options_and_more&#10;  Applying reviews.0003_alter_review_rating&#10;Applying booking.0003_alter_booking_start_date&#10;  Applying reviews.0004_alter_review_rating&#10;Applying listings.0006_alter_listings_category&#10;add Permissions model">
+      <option name="closed" value="true" />
+      <created>1731410952252</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1731410952252</updated>
+    </task>
+    <task id="LOCAL-00004" summary="1.added serializers in listing, booking, reviews, history, users.&#10;2.added views in listing, booking, reviews, history, users.&#10;3.add djangorestframework-simplejwt and permissions in listing, booking, reviews, history, users.&#10;4. add signals in  reviews, users&#10;5.added model profile users &#10;6. add images">
+      <option name="closed" value="true" />
+      <created>1731677944561</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1731677944561</updated>
+    </task>
+    <task id="LOCAL-00005" summary="1. added in view-history action decorators">
+      <option name="closed" value="true" />
+      <created>1731706336738</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1731706336738</updated>
+    </task>
+    <task id="LOCAL-00006" summary="1.restructured booking_ap&#10;2.added decorators in bookings, history views">
+      <option name="closed" value="true" />
+      <created>1731715203365</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1731715203365</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add project_Boking booking.models;history.models; listings.models; reviews.models; user.models&#10;add all serializers;&#10;add views;" />
+    <MESSAGE value="add new Data Base;&#10;add new column booking in model booking;&#10;Change IntegerFields to PositiveIntegerFields;&#10;add exceptions in IntegerFields;&#10;add Model Location;&#10;model Listings, bookings, reviews, user, history changed;&#10;add locationserializer;&#10;changed listings.urls;&#10;admin models registered;&#10;views history, listings changed;&#10;add neu migrations;" />
+    <MESSAGE value="+ Add field created_at to booking&#10;    + Add field price to booking&#10;    + Add field status to booking&#10;    + Add field updated_at to booking&#10;    + Add field number_of_views to listings&#10;    + Add field owner to listings&#10;    + Add field rating to listings&#10;    add RATING_CHOICES in RATING;&#10;    Applying history remove searchhistory location&#10;  Applying listings remove listings locations alter_listings_options_and_more&#10;  Applying reviews.0003_alter_review_rating&#10;Applying booking.0003_alter_booking_start_date&#10;  Applying reviews.0004_alter_review_rating&#10;Applying listings.0006_alter_listings_category&#10;add Permissions model" />
+    <MESSAGE value="1.added serializers in listing, booking, reviews, history, users.&#10;2.added views in listing, booking, reviews, history, users.&#10;3.add djangorestframework-simplejwt and permissions in listing, booking, reviews, history, users.&#10;4. add signals in  reviews, users&#10;5.added model profile users &#10;6. add images" />
+    <MESSAGE value="1. added in view-history action decorators" />
+    <MESSAGE value="1.restructured booking_ap&#10;2.added decorators in bookings, history views" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.restructured booking_ap&#10;2.added decorators in bookings, history views" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

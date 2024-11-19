@@ -1,6 +1,7 @@
 from rest_framework.routers import DefaultRouter
 from django.urls import path, include
-from booking_app.listings.views.views import *
+
+from booking_app.listings.views import ListingViewSet
 
 router = DefaultRouter()
 router.register(r'listings', ListingViewSet)

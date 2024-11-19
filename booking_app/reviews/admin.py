@@ -1,6 +1,7 @@
 from django.contrib import admin
+from booking_app.reviews.model import Review
 
-from booking_app.reviews.models.model import Review
 
-# Register your models here.
-admin.site.register(Review)
+@admin.register(Review)
+class ReviewModelAdmin(admin.ModelAdmin):
+    pass
