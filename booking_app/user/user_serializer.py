@@ -21,19 +21,15 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ['id', 'username', 'email', 'profile', 'profile_url']
         read_only_fields = ['username', 'email']
 
-    def create(self, validated_data):  #Переопределение метода create
-        profile_data = validated_data.pop('profile', {})
-        user = User.objects.create(**validated_data)
-        Profile.objects.create(user=user, **profile_data)
-        return user
+    # def create(self, validated_data):  #Переопределение метода create
+    #     profile_data = validated_data.pop('profile', {})
+    #     user = User.objects.create(**validated_data)
+    #     Profile.objects.create(user=user, **profile_data)
+    #     return user
 
     def update(self, instance, validated_data):
         profile_data = validated_data.get('profile', {})
-        profile_serializer = ProfileSerializer(
-            instance.profile,
-            data=profile_data,
-            partial=True
-        )
+        profile_serializer = ProfileSerializer(instance.profile, data=profile_data, partial=True)
         if profile_serializer.is_valid():
             profile_serializer.save()
         return instance
@@ -41,9 +37,7 @@ class UserSerializer(serializers.ModelSerializer):
     def get_profile_url(self, obj) -> str:
         request = self.context.get('request')
         if request:
-            return request.build_absolute_uri(
-                reverse('user-detail', kwargs={'pk': obj.pk})
-            )
+            return request.build_absolute_uri(reverse('user-detail', kwargs={'pk': obj.pk}))
         return None
 
 
@@ -51,24 +45,18 @@ class RegisterSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ['username', 'email', 'password']
-        extra_kwargs = {
-            'email': {
-                'required': True,
-                'allow_blank': False,
-                'validators': [UniqueValidator(queryset=User.objects.all())]
-            },
-            'password': {
-                'write_only': True,
-                'style': {'input_type': 'password'}
-            }
-        }
+        extra_kwargs = {'email': {'required': True, 'allow_blank': False,
+                                  'validators': [UniqueValidator(queryset=User.objects.all())]},
+                        'password': {'write_only': True, 'style': {'input_type': 'password'}}}
 
     def create(self, validated_data):
         user = User.objects.create_user(
             username=validated_data['username'],
             password=validated_data['password'],
             email=validated_data['email']
+
         )
+
         return user
 
 
@@ -76,27 +64,13 @@ class LoginSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ['email', 'password']
-        extra_kwargs = {
-            'email': {
-                'required': True,
-                'allow_blank': False
-            },
-            'password': {
-                'write_only': True,
-                'style': {'input_type': 'password'}
-            }
-        }
+        extra_kwargs = {'email': {'required': True, 'allow_blank': False},
+                        'password': {'write_only': True, 'style': {'input_type': 'password'}}}
 
 
 class EmailTokenObtainPairSerializer(serializers.Serializer):
-    email = serializers.EmailField(
-        required=True,
-        allow_blank=False
-    )
-    password = serializers.CharField(
-        write_only=True,
-        style={'input_type': 'password'}
-    )
+    email = serializers.EmailField(required=True, allow_blank=False)
+    password = serializers.CharField(write_only=True, style={'input_type': 'password'})
 
     @classmethod
     def get_token(cls, user):

@@ -1,5 +1,4 @@
 from django.db import models
-
 from booking_app.user.model import User
 
 PROPERTY_CHOICES = [
@@ -57,7 +56,7 @@ class Listings(models.Model):
     class Meta:
         ordering = ['-updated_at']  # Сортировка по убыванию даты создания.
         verbose_name = 'Listings'  # Человекочитаемое имя модели: 'Listing'.
-        # unique_together = ['title']  # Уникальность по полю 'title'.
+        unique_together = ['title']  # Уникальность по полю 'title'.
 
     def update_views(self):
         '''

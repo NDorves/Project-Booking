@@ -1,8 +1,9 @@
 from django.contrib import admin
-
 from booking_app.listings.model import Listings
 
-# Register your models here.
-admin.site.register(Listings)
+
+@admin.register(Listings)
+class ListingModelAdmin(admin.ModelAdmin):
+    pass
 
 

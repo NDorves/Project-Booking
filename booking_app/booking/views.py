@@ -3,7 +3,6 @@ from rest_framework.decorators import action
 from rest_framework.exceptions import PermissionDenied, ValidationError
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
-
 from booking_app.booking.model import Booking, BookingStatus
 from booking_app.booking.permissions import AllowListingOwnerOrBookingUser, ReadOnly
 from booking_app.booking.booking_serializer import BookingSerializer, ChoicesSerializer

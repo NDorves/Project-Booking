@@ -1,8 +1,8 @@
 from django.urls import path, include
 from rest_framework_simplejwt import views
 from rest_framework.routers import DefaultRouter
-
-from booking_app.user.views import UserViewSet, RegisterView, LoginView, LogoutView, EmailTokenObtainPairView
+from booking_app.user.views import UserViewSet, RegisterView, LoginView, LogoutView, EmailTokenObtainPairView, \
+    ProtectedView
 
 router = DefaultRouter()
 router.register('', UserViewSet)
@@ -26,7 +26,7 @@ urlpatterns = [
         'token/',
         EmailTokenObtainPairView.as_view(),
         name='token_obtain_pair'
-    ),  # by e-mail
+    ), #by e-mail
 
     # path('protected/', ProtectedView.as_view(), name='protected'),
 

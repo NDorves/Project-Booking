@@ -1,3 +1,4 @@
+from typing import Any
 from django.urls import reverse
 from django.utils import timezone
 from django.db.models import Q
@@ -31,20 +32,18 @@ class BookingSerializer(serializers.ModelSerializer):
     def get_status_display(self, obj) -> str:
         return obj.get_status_display()
 
-    def get_booking_url(self, obj) -> str:
+    def get_booking_url(self, obj) -> Any | None:
         request = self.context.get('request')
         if request:
             return request.build_absolute_uri(
-                reverse('booking-detail', kwargs={'pk': obj.pk})
-            )
+                reverse('booking-detail', kwargs={'pk': obj.pk}))
         return None
 
-    def get_listing_url(self, obj) -> str:
+    def get_listing_url(self, obj) -> Any | None:
         request = self.context.get('request')
         if request:
             return request.build_absolute_uri({'pk': obj.listing.pk})
-        #         reverse('listing-detail', kwargs=
-        #     )
+        #         reverse('listing-detail', kwargs=)
         # return None
 
     def validate(self, data):

@@ -1,18 +1,16 @@
 from rest_framework import viewsets, permissions
-
 from booking_app.reviews.model import Review
 from booking_app.reviews.permissions import IsOwnerOrReadOnly
 from booking_app.reviews.review_serializer import ReviewSerializer
 
 
-# @extend_schema_view(
-#     list=extend_schema(summary="Получить список всех отзывов аутентифицированного пользователя",),
-#     create=extend_schema(summary="Создать новый отзыв",),
-#     retrieve=extend_schema(summary="Получить детальную информацию об отзыве",),
-#     update=extend_schema(summary="Обновить отзыв",),
-#     partial_update=extend_schema(summary="Частично обновить отзыв",),
-#     destroy=extend_schema(summary="Удалить отзыв",),
-# )
+#Получить список всех отзывов аутентифицированного пользователя"
+#Создать новый отзыв"
+#Получить детальную информацию об отзыве"
+#Обновить отзыв"
+#Частично обновить отзыв"
+#Удалить отзыв"
+
 class ReviewViewSet(viewsets.ModelViewSet):
     queryset = Review.objects.all()
     serializer_class = ReviewSerializer

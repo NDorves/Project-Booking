@@ -210,7 +210,7 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticatedOrReadOnly',
     ],
-    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+  #  'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 }
 
 SIMPLE_JWT = {
@@ -218,18 +218,3 @@ SIMPLE_JWT = {
     'REFRESH_TOKEN_LIFETIME': timedelta(days=30),
 }
 
-SPECTACULAR_SETTINGS = {
-    'TITLE': 'renthub API',
-    'DESCRIPTION': '''
-    Полнофункциональное back-end-приложение для системы аренды жилья, включающее управление объявлениями, функциональность поиска и фильтрации по различным параметрам.
-    ''',
-    'VERSION': '1.0.0',
-    'SERVE_INCLUDE_SCHEMA': False,
-    'SWAGGER_UI_SETTINGS': {
-        'deepLinking': True,
-        'persistAuthorization': True,
-        # "displayOperationId": True,
-        'filter': True,
-    },
-    'COMPONENT_SPLIT_REQUEST': True,
-}
