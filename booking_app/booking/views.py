@@ -33,8 +33,8 @@ class BookingViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):     #Получить список всех бронирований аутентифицированного пользователя
         if self.action == 'list':
-            return Booking.objects.all()
-        return Booking.objects.filter(user=self.request.user)       #Получить детальную информацию о бронировании
+            return Booking.objects.filter(user=self.request.user)
+        return Booking.objects.all()       #Получить детальную информацию о бронировании
 
     def get_permissions(self):      #Создать новое бронирование
         if self.action in ['create', 'my_hosted']:

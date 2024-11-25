@@ -43,8 +43,8 @@ def token_to_response(response, user):
     response.data = {
         'username': user.username,
         'email': user.email,
-        #'description': getattr(user.profile, 'description', ''),
-        'description': user.profile.description,
+        # 'description': getattr(user.profile, 'description', ''),
+        'role': user.profile.role,
         'refresh_token': refresh_token_str,
         'access_token': access_token_str
     }

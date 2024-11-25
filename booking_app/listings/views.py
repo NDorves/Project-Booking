@@ -6,8 +6,7 @@ from rest_framework.decorators import action
 from rest_framework.exceptions import PermissionDenied
 from rest_framework.response import Response
 from booking_app.booking.model import Booking, BookingStatus
-from booking_app.history.models import ViewHistory, SearchHistory
-from booking_app.history.history_serlializer import SearchStatsSerializer
+from booking_app.history.models import ViewHistory
 from booking_app.listings.filters import CustomSearchFilter
 from booking_app.listings.permissions import IsOwnerOrReadOnly
 from booking_app.listings.listings_serializer import *
@@ -27,9 +26,9 @@ class ListingViewSet(viewsets.ModelViewSet):
 
     #возможность указать мин/макс. цену,диапазон количества комнат,Тип жилья,Местоположение
     filterset_fields = {
-        'price': ['lte', 'gte'],
-        'rooms': ['range'],
-        'location': ['icontains'],
+        'price': ['lte', 'gte'],        # Цена (возможность указать минимальную и максимальную цену)
+        'rooms': ['range'],   # Количество комнат (возможность указать диапазон количества комнат)
+        'location': ['icontains'],  # Местоположение: (возможность указать город или район в Германии)
         'parking': ['exact'],
         'room_service': ['exact'],
         'all_time_reception': ['exact'],
@@ -60,7 +59,7 @@ class ListingViewSet(viewsets.ModelViewSet):
             return Listings.objects.filter(is_active=True)
         return Listings.objects.all()
 
-    def get_permissions(self):
+    def get_permissions(self, role='landlord'):
         if self.action == 'create':
             return [permissions.IsAuthenticated()]
         else:
@@ -95,16 +94,22 @@ class ListingViewSet(viewsets.ModelViewSet):
         serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
 
+    @action(
+        methods=['get'],
+        detail=True,
+        url_path='reserved-periods',
+        permission_classes=[permissions.AllowAny]
+    )
     def reserved_periods(self, request, pk=None):
         listing = self.get_object()
         bookings = Booking.objects.filter(
             listing=listing,
-            status=BookingStatus.CONFIRMED
+            status=BookingStatus.CONFIRMED,
         ).values('start_date', 'end_date')
         reserved_dates = [
             {
-                'check_in': booking['start_date'],
-                'check_out': booking['end_date']
+                'start_date': booking['start_date'],
+                'end_date': booking['end_date']
             }
             for booking in bookings
         ]

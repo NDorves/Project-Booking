@@ -26,7 +26,7 @@ class BookingSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
         read_only_fields = [
-            'user', 'price', 'status', 'created_at', 'updated_at', #'start_date', 'end_date'
+            'user', 'price', 'status', 'created_at', 'updated_at'  #, 'start_date', 'end_date'
         ]
 
     def get_status_display(self, obj) -> str:
