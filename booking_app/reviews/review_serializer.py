@@ -58,7 +58,7 @@ class ReviewSerializer(serializers.ModelSerializer):
     def get_listing_url(self, obj) -> str:
         request = self.context.get('request')
         if request:
-            return request.build_absolute_uri({'pk': obj.pk})
-        #         reverse('listing-detail', kwargs=
-        #     )
-        # return None
+            return request.build_absolute_uri(
+                reverse('listing-detail', kwargs={'pk': obj.pk})
+            )
+        return None
