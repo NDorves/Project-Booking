@@ -7,13 +7,21 @@ from booking_app.user.model import Profile
 
 
 class ProfileSerializer(serializers.ModelSerializer):
+
     class Meta:
         model = Profile
-        exclude = ['id', 'user']
+        exclude = ['id', 'user', 'description']
+        # exclude = ['id', 'role', 'user',]
+
+    def create(self, validated_data):
+        # role = validated_data.pop('role')
+        profile = Profile.objects.create_profile(role=validated_data['role'],description=validated_data['description'])
+        # Profile.objects.create(user=user, **role)
+        return profile
 
 
 class UserSerializer(serializers.ModelSerializer):
-    profile = ProfileSerializer()
+    profile = ProfileSerializer('role')
     profile_url = serializers.SerializerMethodField()
 
     class Meta:
@@ -42,9 +50,11 @@ class UserSerializer(serializers.ModelSerializer):
 
 
 class RegisterSerializer(serializers.ModelSerializer):
+    profile = ProfileSerializer()
+
     class Meta:
         model = User
-        fields = ['username', 'email', 'password']
+        fields = ['username', 'email', 'password', 'profile']
         extra_kwargs = {'email': {'required': True, 'allow_blank': False,
                                   'validators': [UniqueValidator(queryset=User.objects.all())]},
                         'password': {'write_only': True, 'style': {'input_type': 'password'}}}
@@ -56,14 +66,25 @@ class RegisterSerializer(serializers.ModelSerializer):
             email=validated_data['email']
 
         )
-
         return user
+
+    # def create(self, validated_data):
+    #     role = validated_data.pop('role')
+    #     user = User.objects.create_user(
+    #         username=validated_data['username'],
+    #         profile=validated_data['profile'],
+    #         password=validated_data['password'],
+    #         email=validated_data['email'])
+    #     Profile.objects.create(user=user, **role)
+    #     return user
 
 
 class LoginSerializer(serializers.ModelSerializer):
+    profile = ProfileSerializer()
+
     class Meta:
         model = User
-        fields = ['email', 'password']
+        fields = ['profile', 'email', 'password']
         extra_kwargs = {'email': {'required': True, 'allow_blank': False},
                         'password': {'write_only': True, 'style': {'input_type': 'password'}}}
 
