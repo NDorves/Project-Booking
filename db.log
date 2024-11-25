@@ -9421,3 +9421,21 @@ ALTER TABLE `user_profile` ADD COLUMN `role` varchar(20) NULL; (params None)
 (0.032) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 4 LIMIT 21; args=(4,); alias=default
 (0.031) UPDATE `booking_booking` SET `listing_id` = 6, `user_id` = 6, `start_date` = '2024-11-25', `end_date` = '2024-11-26', `price` = 122.00, `status` = 1, `created_at` = '2024-11-25 21:37:26.063314', `updated_at` = '2024-11-25 21:40:36.570311', `is_confirmed` = 1 WHERE `booking_booking`.`id` = 18; args=(6, 6, '2024-11-25', '2024-11-26', Decimal('122.00'), 1, '2024-11-25 21:37:26.063314', '2024-11-25 21:40:36.570311', True, 18); alias=default
 (0.031) SELECT `listings_listings`.`id`, `listings_listings`.`title`, `listings_listings`.`category`, `listings_listings`.`image`, `listings_listings`.`is_active`, `listings_listings`.`property_type`, `listings_listings`.`description`, `listings_listings`.`price`, `listings_listings`.`location`, `listings_listings`.`site_link`, `listings_listings`.`rooms`, `listings_listings`.`created_at`, `listings_listings`.`updated_at`, `listings_listings`.`rating`, `listings_listings`.`number_of_reviews`, `listings_listings`.`number_of_views`, `listings_listings`.`owner_id`, `listings_listings`.`parking`, `listings_listings`.`pets_allowed`, `listings_listings`.`room_service`, `listings_listings`.`all_time_reception`, `listings_listings`.`wifi_included`, `listings_listings`.`wheelchair_accessible`, `listings_listings`.`pool`, `listings_listings`.`non_smoking_rooms`, `listings_listings`.`airport_shuttle` FROM `listings_listings` ORDER BY `listings_listings`.`updated_at` DESC LIMIT 1000; args=(); alias=default
+(0.015) 
+                SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+            ; args=None; alias=default
+(0.016) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None; alias=default
+(0.015) 
+            SELECT
+                table_name,
+                table_type,
+                table_comment
+            FROM information_schema.tables
+            WHERE table_schema = DATABASE()
+            ; args=None; alias=default
+(0.015) SELECT `django_migrations`.`id`, `django_migrations`.`app`, `django_migrations`.`name`, `django_migrations`.`applied` FROM `django_migrations`; args=(); alias=default
