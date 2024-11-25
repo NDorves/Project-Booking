@@ -26,7 +26,7 @@ class BookingSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
         read_only_fields = [
-            'user', 'price', 'status', 'created_at', 'updated_at'
+            'user', 'price', 'status', 'created_at', 'updated_at', #'start_date', 'end_date'
         ]
 
     def get_status_display(self, obj) -> str:
@@ -42,9 +42,9 @@ class BookingSerializer(serializers.ModelSerializer):
     def get_listing_url(self, obj) -> Any | None:
         request = self.context.get('request')
         if request:
-            return request.build_absolute_uri({'pk': obj.listing.pk})
-        #         reverse('listing-detail', kwargs=)
-        # return None
+            return request.build_absolute_uri(
+                reverse('listing-detail', kwargs={'pk': obj.listing.pk}))
+        return None
 
     def validate(self, data):
         listing = data.get('listing')
